@@ -1,0 +1,51 @@
+# una vez instalado docker. testear que este activado
+sudo systemctl status docker
+#retorna => active (running) 
+# (circulo) verde docker.socket
+
+# para evitar que docker este solicitando contrasenhas
+sudo usermod -aG docker ${USER}
+
+su - ${USER} ===> solicita contrasenha de usuario super usuario. se ingresa contrasenha
+
+# command
+id -nG   ===> cesar adm cdrom sudo dip plugdev lpadmin lxd sambashare docker: todo ok!!
+
+# IMAGENES: es una planilla de solo lectura que define su contenedor. la imagen contiene el codigo que se ejecutara, incluida cualquier definicion para cualquier biblioteca o dependencia que el codigo necesite. Un contenedor de docker es una imagende docker instanciada (en ejecucion)
+
+# muestra las imagenes creadas
+docker images   ===> muestra las imagenes creadas en docker
+
+# para crear una imagen, podemos ir al repositorio de imagenes en https://hub.docker.com/
+# para cargar una imagen de ubuntu
+docker pull ubuntu   ===> se carga la imagen de ubuntu en el respositorio de docker 
+
+# eliminar una imagen
+docker rmi name (or image_ID)
+# forzar 
+docker rmi -f name
+
+# ejecutar una imagen
+docker run -d image_NAME  ===> -d se ejecuta en segundo plano, -it se ejecuta en primer plano
+
+# ver contenedores en ejecucion
+docker ps -a
+
+# ejecutar contenedor con nombre:
+docker run -it --name nombre image_NAME
+
+# para eliminar un contenedor (ojo, un contenedor es una imagen en ejecucion)
+docker rm image_NAME (image_ID)
+
+# se instala imagen ubuntu, luego se ejecuta la imagen. al ejecutarse la imagen de ubuntu se ingresa a ubuntu como un rut. en este ubuntu se pueden instalar los accesorios necesarios
+
+#salir del contenedor
+exit 
+
+# al salir del contenedor, este queda en estado exited (pausado). para volver a entrar al contenedor (y ejecutarlo) se usa este comando
+docker start image_ID
+# y luego, el siguiente comando
+docker exec -it image_NAME bash
+
+# eliminar todos los contenedores a la vez
+docker rm $(docker ps -aq)
