@@ -16,7 +16,7 @@ id -nG   ===> cesar adm cdrom sudo dip plugdev lpadmin lxd sambashare docker: to
 # muestra las imagenes creadas
 docker images   ===> muestra las imagenes creadas en docker
 
-# para crear una imagen, podemos ir al repositorio de imagenes en https://hub.docker.com/
+# para crear una imagen, podemos ir al repositorio de imagenesen https://hub.docker.com/
 # para cargar una imagen de ubuntu
 docker pull ubuntu   ===> se carga la imagen de ubuntu en el respositorio de docker 
 
@@ -49,3 +49,19 @@ docker exec -it image_NAME bash
 
 # eliminar todos los contenedores a la vez
 docker rm $(docker ps -aq)
+
+# crear mis imagenes
+sudo nano Dockerfile    ===> se despliega una ventana GNU nano 6.2 (es un editor de comandos)
+############################
+# en el editor de comandos Dockerfile
+FROM ubuntu 
+
+RUN apt update
+
+RUN apt install python3.8 -y
+
+# para guardar cambios:  Ctrl + o 
+# para salir: Ctrl + x   
+##########################
+# para ejecutar los comandos senhalados en el Dockerfile
+docker build --tag my_image_NOMBRE .    ===> el punto al final indica que el dockerfile se encuentra dentro del directorio en el que se esta trabajando
