@@ -50,7 +50,7 @@ docker exec -it image_NAME bash
 # eliminar todos los contenedores a la vez
 docker rm $(docker ps -aq)
 
-# crear mis imagenes
+# crear mis imagenes: en este ejemplo se crea una imagen con ubuntu y python3 dentro de ubuntu
 sudo nano Dockerfile    ===> se despliega una ventana GNU nano 6.2 (es un editor de comandos)
 ############################
 # en el editor de comandos Dockerfile
@@ -65,3 +65,20 @@ RUN apt install python3.8 -y
 ##########################
 # para ejecutar los comandos senhalados en el Dockerfile
 docker build --tag my_image_NOMBRE .    ===> el punto al final indica que el dockerfile se encuentra dentro del directorio en el que se esta trabajando
+
+# Copiar archivos desde PC a Contenedor-docker
+sudo nano Dockerfile   ===> para entrar al documentos docker
+##########################
+# en el editor de comandos Dockerfile
+FROM ubuntu
+
+RUN apt update
+
+COPY hola.txt /home/carpeta/   
+
+ctrl + o + enter + ctrl + x 
+
+#####################
+# para crear hola.txt se uso el comando
+touch hola.txt
+# el comando COPY copia el archivo hola.txt en la carpeta con la direccion indicada /home/carpeta/
