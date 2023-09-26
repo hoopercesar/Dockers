@@ -1,0 +1,21 @@
+# VARIABLE DE ENTORNO
+
+##########################
+FROM ubuntu
+
+ENV variable_entorno "algun valor o mensaje..."
+
+##############################
+docker build -t image_name .    ===> para crear imagen
+docker run -it image_name   ===> para ejecutar container
+
+# en el container para ver valor de variable de entorno
+echo $nombre_variable
+
+# definir directorio de trabajo por defecto en Dockerfile
+# y guardar documento en el directorio
+WORKDIR /home/algun_directorio/
+
+ENV variable_entorno "valor variable entorno"
+
+COPY texto.txt .
