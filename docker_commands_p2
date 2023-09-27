@@ -19,3 +19,28 @@ WORKDIR /home/algun_directorio/
 ENV variable_entorno "valor variable entorno"
 
 COPY texto.txt .
+
+# instrucciones CMD, USER y LABEL
+# LABEL: es una etiqueta para indicar algo (p. ej. version, autor, fecha)
+LABEL autor= "hooper desarrollo"
+LABEL: version=1.0
+
+RUN apt update
+
+# USER
+FROM ubuntu
+
+RUN useradd Fernanda   ===> crea un usuario nuevo
+
+USER Fernanda   ===> se establece como usuario predeterminado
+
+# CMD: sirve para que un comando se ejecute de manera predeterminada una vez que haya sido creado. se utiliza para ejecutar un comando por defecto, cuando se crea el contenedor.
+ej:
+CMD echo Bienvenido al contenedor!  ===> muestra el mensaje de bienvenida
+
+# OBS: cuando se incluye un CMD en el dockerfile, para entrar al contenedor es necesario agregar un bash para entrar al contenedor
+docker run -it image_name bach
+
+# Docker_Ignore: se crea un documento .dockerignore en vsc, y dentro de este documento se ingresan todos los archivos que no se desean copiar dentro del contenedor. el Dockerfile contiene las instrucciones, por ejemplo
+
+
