@@ -27,3 +27,5 @@ docker build --tag Nombre_imagen .
 
 # corre contenedor
 docker run -d -p 8080:80 nombre_imagen
+
+

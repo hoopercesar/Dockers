@@ -31,6 +31,19 @@ docker run -d image_NAME  ===> -d se ejecuta en segundo plano, -it se ejecuta en
 # ver contenedores en ejecucion
 docker ps -a
 
+# ver los IDs de todas las imagenes en docker
+docker images -aq
+
+# eliminar todas las imagenes instaladas
+docker rmi $(docker images -aq)
+
+# ver todos los contenedores corriendo
+docker  ps -aq
+
+# detener y eliminar todos los contenedores
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)   ===> elimina todos los contenedores
+
 # ejecutar contenedor con nombre:
 docker run -it --name nombre image_NAME
 
@@ -58,7 +71,7 @@ FROM ubuntu
 
 RUN apt update
 
-RUN apt install python3.8 -y
+RUN apt install python3 -y
 
 # para guardar cambios:  Ctrl + o 
 # para salir: Ctrl + x   
