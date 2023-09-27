@@ -1,5 +1,18 @@
 # exponer y gestionar puertos en docker: la idea es bajar una imagen que permita asignar puertos a los contenedores. en este ejemplo descargamos una imagen de jenkins desde docker-hub.
 # una vez instalada la imagen la hacemos correr con el siguiente comando:
 docker run -d -p 8080:8080 image_NAME   ===> -d: deamon, -p: asigna puertos
-
 # la imagen escucha a traves del puerto 8080. en el localhost:8080 se puede ver el contenedor arriba
+
+
+# Paralizar, Reiniciar e Iniciar un Contenedor de Docker
+# exit: cuando esta dentro del contenedor el comando exit deja en estado exited al salir
+# paralizar
+docker stop container_name (or container_ID)
+# reiniciar
+docker restart image_Name (image_ID)
+# iniciar
+docker run -it image_Name (image_ID)
+# ejecutar una ventana bash dentro del contenedor
+docker exec -ti image_NAME (or ID)
+
+# para liminar un contenedor debe estar paralizado!! stop
