@@ -1,0 +1,3 @@
+# exponer y gestionar puertos en docker: la idea es bajar una imagen que permita asignar puertos a los contenedores. en este ejemplo descargamos una imagen de jenkins desde docker-hub.
+# una vez instalada la imagen la hacemos correr con el siguiente comando:
+docker run -d -p 8080:8080 image_NAME   ===> -d: deamon, -p: asigna puertos
