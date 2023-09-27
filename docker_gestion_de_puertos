@@ -15,4 +15,15 @@ docker run -it image_Name (image_ID)
 # ejecutar una ventana bash dentro del contenedor
 docker exec -ti image_NAME (or ID)
 
-# para liminar un contenedor debe estar paralizado!! stop
+# para eliminar un contenedor debe estar paralizado!! stop
+
+# gestionar un servidor nginx. luego de descargar la imagen.
+# en Dockerfile
+FROM nginx 
+COPY directorio-estatico-html /usr/share/nginx/html
+
+# crear  imagen
+docker build --tag Nombre_imagen .
+
+# corre contenedor
+docker run -d -p 8080:80 nombre_imagen
