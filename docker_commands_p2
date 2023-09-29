@@ -25,7 +25,7 @@ COPY texto.txt .
 LABEL autor= "hooper desarrollo"
 LABEL: version=1.0
 
-RUN apt update
+RUN apt update 
 
 # USER
 FROM ubuntu
