@@ -1,0 +1,37 @@
+Comandos para instalar Docker en Ubuntu 22.04
+
+Paso 1: sudo apt update
+
+Paso 2: sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+Paso 3: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+paso 4: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+
+paso5: sudo apt update
+
+Paso 6: sudo apt install docker-ce
+
+Paso 7: sudo systemctl status docker
+	Salida:
+	Active: active (running) since Thu 2023-12-14 18:37:40 -03; 3 days ago
+	TriggeredBy: (botón en verde) docker.socket
+	
+	(para salir presionar q)
+	
+Para evitar que Docker esté solicitando contraseñas:
+Paso 8: sudo usermod -aG docker ${USER}
+	su - ${USER}  ===> Salida: insertar contraseña de root
+	id -nG  ===> Salida: "cesar" adm cdrom sudo dip plugdev lpadmin lxd sambashare docker
+	
+Paso 9: docker ps 
+	Salida:
+	CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+Listo!
+
+
+	
+	
+
+
