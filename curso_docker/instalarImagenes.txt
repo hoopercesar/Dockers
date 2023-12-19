@@ -1,0 +1,33 @@
+Comandos para instalar imágenes desde Docker hub:
+
+# muestra las imagenes creadas
+docker images   ===> muestra las imagenes creadas en docker
+
+# para crear una imagen, podemos ir al repositorio de imagenesen https://hub.docker.com/
+# para cargar una imagen de ubuntu (o python, node, etc)
+docker pull ubuntu   ===> se carga la imagen de ubuntu en el respositorio de docker 
+
+# eliminar una imagen
+docker rmi name (or image_ID)
+# forzar 
+docker rmi -f name
+
+# ejecutar una imagen
+docker run -d image_NAME  ===> -d se ejecuta en segundo plano, [con -it se ejecuta en primer plano]
+
+# ver contenedores en ejecucion
+docker ps -a
+
+# ver los IDs de todas las imagenes en docker
+docker images -aq
+
+# eliminar todas las imagenes instaladas
+docker rmi $(docker images -aq)
+
+# ver todos los contenedores corriendo
+docker  ps -aq
+
+# detener y eliminar todos los contenedores
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)   ===> elimina todos los contenedores
+
