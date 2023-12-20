@@ -1,0 +1,47 @@
+# Vamos a copiar un documento desde nuestro PC a un contenedor Docker
+
+paso 1: creamos un archivo de texto y escribimos algo
+touch saludo.txt
+cat > saludo.txt
+"hola, mundo. saludos!"
+ctrl+d
+
+paso 2: abrir Dockerfile
+#############################
+sudo nano Dockerfile
+
+paso 2: ingresar las instrucciones
+FROM ubuntu:alguna_version
+
+RUN apt update
+
+COPY saludo.txt /home/unacarpeta/  ===> ésto va a copiar el archivvo en home y dentro de la carpeta unacarpeta
+#################################
+
+paso 3: crear imagen y verificar 
+docker build --tag ubuntu-saludo .
+docker images
+
+paso 4: ejecutar contenedor
+docker run -it ubuntu-saludo
+
+paso 5: navegar hasta el directorio y abrir archivo.txt 
+cd home/unacarpeta
+cat saludo.txt
+
+
+# vamos a realizar algunas configuraciones un poco más avanzadas
+# por ejemplo variables de entorno
+
+paso 1: al Dockerfile
+paso 2: instrucciones
+FROM ubuntu
+
+ENV variable "Ésta es una variable"
+
+paso 3: salir, crear imagen y ejecutar contenedor
+docker build -t variable-entorno
+docker run -it variable-entorno
+
+paso 4: ver variable en contenedor
+echo $variable
