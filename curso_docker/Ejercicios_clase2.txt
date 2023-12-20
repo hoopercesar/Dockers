@@ -1,0 +1,56 @@
+# ejercicios
+1. crear un dockerfile con ubuntu, agregar python3, pip y numpy y calcular la raiz cuadrada de 4
+ 
+ Solución:
+##### dentro del Dockerfile ################
+ # Usa la imagen oficial de Ubuntu como base
+FROM ubuntu:latest
+
+# Actualiza el índice de paquetes e instala Python 3 y Pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip
+
+# Instala NumPy utilizando Pip
+RUN pip3 install numpy
+
+#############################################
+
+# construir la imagen
+docker build -t ubuntu_python_numpy .
+
+# ejecutar el contenedor
+docker run -it ubuntu_python_numpy
+
+# entrar a pyhton3 y calcular la raiz
+
+FIN
+
+2. crear un Dockerfile que desde ubuntu instale una python3, pip y numpy, y 
+# y cree una variable de entorno dentro para leerla en python
+
+Solución:
+
+FROM ubuntu:latest
+
+# instala Python 3 y Pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip
+
+# instala NumPy utilizando Pip
+RUN pip3 install numpy
+
+# variable de entorno
+ENV VARIABLE_ENTORNO "Hola, esta es mi variable de entorno desde Dockerfile"
+
+# Establece el directorio de trabajo en /app
+WORKDIR /app
+
+# Copia el script de Python al contenedor
+COPY script.py .
+
+
+
+###########################
+
+
+
