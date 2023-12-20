@@ -1,0 +1,51 @@
+# primero: detener y eliminar multiples contenedores a la vez
+
+# este comando retorna las id's de todos los contenedores en ejecución
+docker ps -aq
+
+# este comando detiene todos los contenedores retornados por el comando anterior
+docker stop $(docker ps -aq)
+
+# para eliminar una imagen, debe eliminarse primero el contenedor
+# para eliminar un contenedor en ejecución, debe detenerse primero la ejecución y luego eliminar
+
+
+## Personalizar imágenes
+#La idea es aprender a crear nuestras propias imágenes en Docker.
+
+paso 1: creamos un directorio donde guardar nuestras imágenes e ingresamos a ese directorio
+mkdir nombre_directorio
+cd nombre_directorio
+
+paso 2: creamos un archivo que se llama Dockerfile
+#en este dockerfile vamos a poder personalizar y poner todo lo que necesitemos
+sudo nano Dockerfile
+
+paso 3: se abre el editor Dockerfile ######################### 
+# dentro podemos escribir los comandos 
+# para que se ejecute lo que deseamos. Por ejemplo:
+
+FROM ubuntu ===> especifíca el sistema operativo que se va a montar dentro del contenedor
+
+RUN apt update  ===> para actualizar los repositorios
+
+RUN apt install python3 -y ===> se ejecuta la instalación de python3. el -y es para aceptar la instalación
+
+# luego se guarda la información
+Ctrl+o
+ctrl+x ===> para salir del editor ##########################
+
+paso 4: ahora construimos una imagen con los comandos dentro del Dockerfile
+docker build --tag MI_nombre_imagen .  
+===> el '.' al final del comando indica que se debe ejecutar el Dockerfile que está en la directorio actual
+# de otro modo es necesario agregar un path del directorio donde se encuentra el Dockefile
+
+paso 5: probemos si funciona??
+# primero revisamos que se creó la imagen
+docker images ===> debería aparecer el nombre de la imagen que acabamos de crear MI_nombre_imagen
+
+# ejecutamos el contenedor
+docker run -it nombre_imagen 
+
+
+
