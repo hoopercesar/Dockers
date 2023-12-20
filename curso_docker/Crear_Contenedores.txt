@@ -1,0 +1,50 @@
+# Contenedores - Ciclo de vida
+
+# Comandos básicos: 
+
+# una vez cargada la imagen, se ejecuta el contenedor
+
+docker run -d nombre_imagen (ó id_imagen) ===> con -d se ejecuta en segundo plano
+docker run -it nombre_imagen ===> con -it se ejecuta en primer plano
+
+
+# para ver qué contenedores se están ejecutando
+
+docker ps -a   
+
+
+# para acceder a id's de contenedores
+
+docker ps -aq
+
+
+# para especificar el nombre del contenedor al ejecutarlo
+
+docker -it --name mi_nombre nombre_imagen 
+
+
+# eliminar contenedor
+
+docker rm id_contenedor (ó nombre_contenedor)
+
+
+# ejemplo: 
+a. descargar una imagen de Ubuntu
+b. ejecutar el contenedor con nombre_propio
+c. ejecutar ping 
+d. instalar ping y ejecutarlo
+e. salir del contenedor
+f. verificar status del contenedor
+g. volver a ejecutar contenedor y entrar nuevamente
+h. salir del contenedor y eliminarlo
+
+# Solucion:
+a. docker pull ubuntu
+b. docker run -it --name myUbuntu ubuntu 
+c. ping ine.gob.cl
+d. apt update && apt install inetutils-ping y luego ping ine.gob.cl
+e. primero detener ping:  Ctrl + z , luego: exit
+f. docker ps -a
+g. docker start nombre_contenedor, docker exec -it nombre_contenedor bash
+h. exit, luego docker rm nombre_contenedor
+
