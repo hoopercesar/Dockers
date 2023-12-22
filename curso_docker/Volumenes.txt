@@ -1,0 +1,23 @@
+# Vamos a crear volúmenes
+"los volúmenes son un mecanismo para persistir y compartir datos entre contenedores y el host. Los volúmenes proporcionan una forma de almacenar información fuera del sistema de archivos del contenedor, lo que es crucial para mantener datos persistentes incluso cuando se detiene o elimina un contenedor"
+
+# Los contenedores son efímeros, lo que significa que su sistema de archivos principal se borra cuando se detiene o elimina el contenedor. Los volúmenes permiten que ciertos datos persistan más allá del ciclo de vida de un contenedor.
+Compartir datos entre contenedores:
+
+# Los volúmenes también proporcionan una forma de compartir datos entre contenedores. Varios contenedores pueden montar el mismo volumen, permitiendo compartir información entre ellos.
+
+# Cómo crear un volumen?
+
+docker create volume nombre_volumen
+
+Paso 1: cargamos una imagen
+Paso 2: Ejecutamos contenedor con este comando:
+docker run --rm -it -v nombre_volumen:/directorio_contenedor nombre_imagen
+
+paso 3: creamos un archivo dentro del directorio del contenedor
+touch archivo.txt
+
+# salir, crear un nuevo contenedor compartiendo el volumen que creamos
+docker run --rm -it -v nombre_volumen:/directorio_contenedor nueva_imagen
+
+# verificar si funciona!!
