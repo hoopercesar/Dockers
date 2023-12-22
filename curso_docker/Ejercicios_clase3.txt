@@ -1,0 +1,27 @@
+# ejercicios
+
+1. Crear un Contenedor para un Sitio Web Simple
+
+Solución
+###############
+FROM nginx
+
+COPY . /usr/share/nginx/html
+
+EXPOSE 80
+################
+docker build -t mi_web .
+
+docker run -d -p 8080:80 --name miweb_container mi_web
+
+# REVISAR EN localhost:8080
+
+
+2. realizar cambios
+# modificar el Sitio Web: hacer cambios en el archivo index.html 
+# dentro de la carpeta mi-sitio-web en tu máquina host. 
+# agrega más contenido o modifica el mensaje.
+
+# después de hacer los cambios
+docker exec -it mi_web-container nginx -s reload
+
