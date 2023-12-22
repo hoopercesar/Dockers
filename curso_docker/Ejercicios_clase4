@@ -1,0 +1,49 @@
+0. Cargar imagen, crear contenedor con -d. Salir, detenerlo, volver a activarlo e ingresar en modo -it 
+
+1. Crear un dockerfile que cargue pyhton y ejecute script.py, donde script.py es sencillamente
+print("Hola, mundo")
+
+Solución:
+ # En el directorio donde tenemos nuestro Dockerfile creamos el script.py
+ con el comando (pueden usar algún editor, bloc de notas)
+ print("hola, mundo")
+ 
+ ######### en el dockerfile: ###########
+ 
+FROM python
+
+Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+Copia el script.py al directorio de trabajo
+COPY script.py .
+
+Ejecuta el script.py al iniciar el contenedor
+CMD ["python", "./script.py"]
+
+###########################################
+
+
+2. crear dockerfile con script.py que preguna nombre apellido y retorna nombre apellido
+
+# Solución:
+# script.py
+nombre = input("Ingresa tu nombre: ")
+apellido = input("Ingresa tu apellido: ")
+
+resultado = f"Tu nombre es: {nombre} {apellido}"
+print(resultado)
+
+############ Dockerfile #############
+
+.
+.
+.
+CMD ["python", "./script.py"]
+###########################################
+
+3. Usar Bind Mount para guardar en mi PC cualquier script en un WORKDIR creado en el Dockerfile
+
+4. convertir un contenedor en una imagen
+
+5. Crear un Contenedor para un Sitio Web Simple usando el servidor que usted quiera!!
