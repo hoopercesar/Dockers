@@ -1,0 +1,26 @@
+# vamos a instalar una base de datos MySQL
+
+docker pull mysql
+
+# instalar mysql server si no lo tienen
+sudo apt install mysql-server
+
+# luego correr este comando
+docker run --name nombre_DB -e MYSQL_ROOT_PASSWORD=mi_password -d IMAGEN_mysql
+docker run --name database -e MYSQL_ROOT_PASSWORD=123123 -d mysql
+
+# la IP de la Db se obtiene con
+docker inspect Nombre_DB
+(172.17.0.2)
+
+# entramos en la base de datos
+mysql -u root -h IP_de_DB -pPASSWORD
+mysql -u root -h 172.17.0.2 -p123123
+
+# dentro de mysql
+show databases ;
+create database algun_nombre ;
+
+show databases
+
+
