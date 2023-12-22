@@ -1,0 +1,18 @@
+# vamos a hacer que todo lo que haga en el contenedor docker
+# se comparta en mi computador. ésto se llama BIND MOUNT
+
+# lo haremos con ubuntu
+docker pull ubuntu
+
+# y ahora ejecutamos este comando
+
+docker run -it --rm -v /directorio_mi_PC:/directorio_contenedor ubuntu
+
+#a probarlo!!
+
+# IMPORTANTE los contenedores bind mount se destruyen cuando se ejecuta exit
+
+
+
+
+
