@@ -1,0 +1,69 @@
+# WORKDIR
+# se utiliza para crear el directorio de trabajo
+
+# desde el Dockerfile se carga el SO e inmediatamente se puede crear el workdir
+
+############ en el Dockerfile #####################
+FROM ubuntu
+
+WORKDIR /home/mi_carpeta
+
+COPY saludo.txt .
+
+##################################################
+# se copia saludo.txt en el directorio donde se carga el workdir
+
+
+######### LABEL, USER y CMD ###########
+FROM ubuntu
+
+WORKDIR /home/micarpeta
+
+# configuramos el autor del programa
+LABEL autor="César"
+
+# podemos también incluir la versión
+LABEL version=1.0
+
+RUN apt update
+
+# creamos un usuario con useradd
+RUN useradd cesar
+
+# configuramos para que por defecto la sesión sea con cesar
+USER cesar
+
+# configuramos el primer comando que se va a ejecutar cuando arranque el contenedor
+CMD echo Bienvenido al contenedor
+
+################################################
+# lo siguiente es crear imagen y ejecutar contenedor
+
+
+############### DOCKERIGNORE ################
+
+FROM ubuntu
+
+WORKDIR /home/micarpeta
+
+# configuramos el autor del programa
+LABEL autor="César"
+
+# podemos también incluir la versión
+LABEL version=1.0
+
+RUN apt update
+
+# creamos un usuario con useradd
+RUN useradd cesar
+
+# configuramos para que por defecto la sesión sea con cesar
+USER cesar
+
+COPY . /home/micarpeta
+#################################################
+# en VSC creamos un archivo .dockerignore 
+# donde listamos todos los elementos de la carpeta actual que no deseamos copiar
+# en /home/micarpeta
+
+
