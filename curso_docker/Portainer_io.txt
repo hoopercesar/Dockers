@@ -1,0 +1,25 @@
+# "Portainer es una plataforma de gestión para Docker que facilita la administración de entornos Docker y la implementación de contenedores. Portainer.io proporciona una interfaz de usuario basada en web que permite administrar y supervisar clústeres de Docker de manera sencilla y visual".
+
+# Cómo acceder a Portainer.io: escribir este comando
+
+docker run -d -p 8088:8000 -p 9099:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /volume1/tmp/portainer_data:/data portainer/portainer-ce
+
+# ingresar un password y entrar!!
+OJO: este comando detiene la ejecución de portainer.io en el localhost:9099 cada vez que detenemos el contenedor portainer
+
+# Explicación del código
+
+docker run: nicia un contenedor basado en la imagen especificada.
+-d: ejecuta el contenedor en segundo plano.
+-p 8088:8000 -p 9099:9000: Mapea puertos del host al contenedor. 
+En este caso, el puerto 8088 del host se asigna al puerto 8000 del contenedor, 
+y el puerto 9099 del host se asigna al puerto 9000 del contenedor.
+--name=portainer: Asigna un nombre al contenedor, en este caso, "portainer".
+--restart=always: Configura el contenedor para reiniciarse automáticamente siempre que se detenga o se apague.
+-v /var/run/docker.sock:/var/run/docker.sock: Monta el socket de Docker del host en el contenedor. 
+Esto permite que Portainer interactúe con el daemon de Docker del host para gestionar otros contenedores.
+-v /volume1/tmp/portainer_data:/data: monta un volumen para persistir los datos de configuración de portainer. 
+Así, incluso si el contenedor se detiene o se elimina, los datos de configuración persistirán 
+en el host en el directorio /volume1/tmp/portainer_data.
+portainer/portainer-ce: Especifica la imagen de Docker que se utilizará, 
+en este caso, la imagen de Portainer Community Edition.
