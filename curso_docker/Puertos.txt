@@ -1,0 +1,47 @@
+## Exponer y gestionar puertos
+
+# vamos a cargar jenkins 
+docker pull jenkins/jenkins
+
+# y vamos a ejecutar el contenedor a través del puerto 8080
+docker run -d -p 8080:8080 --name mi_jenkins jenkins/jenkins
+
+-d: Ejecuta el contenedor en segundo plano (modo "detached").
+-p 8080:80: Mapea el puerto 8080 de tu máquina host al puerto 8080 del contenedor. 
+El formato es -p host_port:container_port.
+--name mi_jenkins: para asignar nombre 
+
+# Pruébalo con nginx
+docker pull nginx
+
+docker run -d -p 8080:80 --name mi_nombre nginx
+
+## Iniciar un servidor web
+
+
+## Gestionar Usuario
+###########################
+FROM ubuntu
+
+RUN useradd pepe
+
+USER pepe
+
+
+## Convertir contenedor en imagen
+# sirve cada vez que creamos un contenedor y realizamos muchos cambios
+# de modo que luego deseamos convertir este contenedor en una imagen.
+#  veamos cómo funciona
+docker pull ubuntu
+
+docker run -it ubuntu
+
+# ahora, dentro del bash creamos un par de archivos, carpetas, etc
+touch texto.txt foto.jpg script.js react.jsx
+mkdir carpeta
+
+# salimos del contenedor y realizamos un commit
+docker commit nombre_contenedor mi_nombre_imagen
+
+# probemos si funciona
+ 
