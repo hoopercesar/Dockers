@@ -20,8 +20,10 @@ sudo iptables-save > /etc/iptables/rules.v4
 ```
 
 ### Si no tienes el directorio iptables lo creas y vuelves a guardar. aquí los comandos
+```
 sudo mkdir -p /etc/iptables/
 sudo touch /etc/iptables/rules.v4
+```
 
 #### Anexo:
  El proyecto web lo puse en un docker y lo serví con nginx. Dejo el Dockerfile 
@@ -30,13 +32,25 @@ sudo touch /etc/iptables/rules.v4
 ######### DOCKERFILE ################
                                                                
 #### usa imagen base con servidor nginx
+```
 FROM nginx:latest
+```
 
 #### copia archivos del proyecto al directorio de trabajo en el contenedor
+```
 COPY . /usr/share/nginx/html
+```
 
 #### expone el puerto 9001 para que el contenedor pueda ser accedido desde fuera. desde dentro el servidor trabaja con el puerto 80. 
+```
 EXPOSE 9001
+```
 
 #######################################
+
+### Finalmente, para crear la imagen
+docker build -t nombre_imagen .
+
+### levantar el contenedor en el puerto 9001
+docker run -d -p 9001:80 id_contenedor
 
