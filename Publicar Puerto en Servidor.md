@@ -36,12 +36,12 @@ sudo touch /etc/iptables/rules.v4
 FROM nginx:latest
 ```
 
-#### copia archivos del proyecto al directorio de trabajo en el contenedor
+#### # copia archivos del proyecto al directorio de trabajo en el contenedor
 ```
 COPY . /usr/share/nginx/html
 ```
 
-#### expone el puerto 9001 para que el contenedor pueda ser accedido desde fuera. desde dentro el servidor trabaja con el puerto 80. 
+#### # expone el puerto 9001 para que el contenedor pueda ser accedido desde fuera. desde dentro el servidor trabaja con el puerto 80. 
 ```
 EXPOSE 9001
 ```
