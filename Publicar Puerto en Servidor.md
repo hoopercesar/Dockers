@@ -7,13 +7,14 @@ Suponiendo que el servicio está activo en el contenedor.
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nombre_del_contenedor
 ```
 
-#### dar autorización al contenedor (con la IP obtenida antes) OJO que en este ejemplo puse puerto 9001, 
-porque justamente estaba tratando de publicar el contenedor que sale por el puerto 9001:
+#### Dar autorización al contenedor (con la IP obtenida antes) OJO que en este ejemplo puse puerto 9001, 
+porque justamente estaba tratando de publicar el contenedor que sale por el puerto 9001. Obviamente, tú puedes 
+poner el puerto que desees o de acuerdo a la disponibilidad de puertos de tu servidor. 
 ```
 sudo iptables -A INPUT -p tcp --dport 9001 -m iprange --src-range direccion_IP_contenedor -j ACCEPT
 ```
 
-#### guardar los cambios en iptables:
+#### Guardar los cambios en iptables:
 ```
 sudo iptables-save > /etc/iptables/rules.v4
 ```
