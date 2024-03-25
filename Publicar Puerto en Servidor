@@ -16,3 +16,20 @@ sudo iptables-save > /etc/iptables/rules.v4
 sudo mkdir -p /etc/iptables/
 sudo touch /etc/iptables/rules.v4
 
+## Anexo:
+## el proyecto web lo puse en un docker y lo serví con nginx. Dejo el Dockerfile 
+## El proyecto contiene archivos js, css, html e imágenes png
+
+######### DOCKERFILE ################
+                                                               
+# usa imagen base con servidor nginx
+FROM nginx:latest
+
+# copia archivos del proyecto al directorio de trabajo en el contenedor
+COPY . /usr/share/nginx/html
+
+# expone el puerto 9001 para que el contenedor pueda ser accedido desde fuera. desde dentro el servidor trabaja con el puerto 80. 
+EXPOSE 9001
+
+#######################################
+
