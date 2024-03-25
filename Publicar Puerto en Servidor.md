@@ -27,7 +27,7 @@ sudo touch /etc/iptables/rules.v4
 
 #### Anexo:
  El proyecto web lo puse en un docker y lo serví con nginx. Dejo el Dockerfile 
- El proyecto contiene archivos js, css, html e imágenes png
+ El proyecto contienía archivos js, css, html e imágenes png
 
 ######### DOCKERFILE ################
                                                                
