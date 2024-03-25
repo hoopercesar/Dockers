@@ -48,12 +48,12 @@ EXPOSE 9001
 
 #######################################
 
-### Finalmente, para crear la imagen
+#### Finalmente, para crear la imagen
 ```
 docker build -t nombre_imagen .
 ```
 
-### levantar el contenedor en el puerto 9001
+#### levantar el contenedor en el puerto 9001
 ```
 docker run -d -p 9001:80 id_contenedor
 ```
