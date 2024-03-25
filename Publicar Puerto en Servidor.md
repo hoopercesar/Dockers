@@ -31,7 +31,7 @@ sudo touch /etc/iptables/rules.v4
 
 ######### DOCKERFILE ################
                                                                
-#### usa imagen base con servidor nginx
+#### # usa imagen base con servidor nginx
 ```
 FROM nginx:latest
 ```
