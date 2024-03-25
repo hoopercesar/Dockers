@@ -1,8 +1,8 @@
 ## Si tienes un servidor y quieres publicar proyecto web funcionando en un docker
-## Ubuntu 22.04
-## Suponiendo que el servicio está activo en el contenedor.
+ Ubuntu 22.04
+Suponiendo que el servicio está activo en el contenedor.
 
-## Obtener la IP del contenedor: 
+### Obtener la IP del contenedor: 
 ```
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nombre_del_contenedor
 ```
